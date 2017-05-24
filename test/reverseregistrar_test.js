@@ -119,7 +119,7 @@ describe('ReverseRegistrar', function() {
 
     it('sets name records', function() {
         this.slow(300);
-        return registrar.setNameAsync('testname', {from: accounts[0]})
+        return registrar.setNameAsync('testname', {from: accounts[0], gas: 500000})
             .then(hash => ens.resolverAsync(node))
             .then(resolverAddr => assert.equal(resolverAddr, resolver.address))
             .then(result => resolver.nameAsync(node))
